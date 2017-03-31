@@ -7,6 +7,7 @@ import java.awt.Panel;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.swing.JPanel;
 
@@ -36,7 +37,7 @@ public class Celda extends JPanel{
 		
 		BufferedImage img = null;
 		try {
-		    img = ImageIO.read(new File("D:\\Users\\Deborah\\repoPrograTres\\TP1P3\\src\\presentacion\\images\\celda.png"));
+			img = ImageIO.read(getClass().getResource("/Images/Playa/1.png"));
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
