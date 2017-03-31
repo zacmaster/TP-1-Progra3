@@ -1,16 +1,23 @@
 package presentacion;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 import java.awt.Panel;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Label;
 
 public class Celda extends JPanel{
 	private Panel panel;
-	private Label label;
+	private JLabel label;
 	private int id;
 	private int ancho;
 	private int alto;
@@ -22,14 +29,31 @@ public class Celda extends JPanel{
 		panel = new Panel();
 		panel.setBounds(x, y, ancho, alto);
 		panel.setLayout(null);
-		panel.setBackground(Color.gray);
-		label = new Label("");
-		label.setForeground(Color.BLACK);
-		label.setBounds(25, 22, 30, 30);
-		label.setFont(new Font("Dialog", Font.BOLD, 20));
+		panel.setBackground(Color.black);
+		label = new JLabel();
+		label.setBounds(0, 0, 71, 71);
+//		label.setForeground(Color.BLACK);
+		
+		BufferedImage img = null;
+		try {
+		    img = ImageIO.read(new File("D:\\Users\\Deborah\\repoPrograTres\\TP1P3\\src\\presentacion\\images\\celda.png"));
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+		
+		Image dimg = img.getScaledInstance(this.ancho, this.alto,
+		        Image.SCALE_SMOOTH);
+		
+		ImageIcon imageIcon = new ImageIcon(dimg);
+		
+//		label.setIcon(new ImageIcon("D:\\Users\\Deborah\\repoPrograTres\\TP1P3\\src\\presentacion\\images\\celda.png"));
+
+		label.setIcon(imageIcon);
+//		label.setFont(new Font("Dialog", Font.BOLD, 20));
 		
 		
 		panel.add(label);
+		validate();
 		
 	}
 	public void encender(int numero){
