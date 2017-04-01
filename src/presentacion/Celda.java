@@ -23,7 +23,7 @@ public class Celda extends JPanel{
 	private int ancho;
 	private int alto;
 	
-	public Celda(int x, int y){
+	public Celda(int x, int y,int numeroDeImagen){
 		id = -1;
 		alto = 71;
 		ancho = 71;
@@ -37,7 +37,7 @@ public class Celda extends JPanel{
 		
 		BufferedImage img = null;
 		try {
-			img = ImageIO.read(getClass().getResource("/Images/Playa/1.png"));
+			img = ImageIO.read(getClass().getResource("/Images/Clasico/"+numeroDeImagen+".png"));
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
@@ -47,7 +47,6 @@ public class Celda extends JPanel{
 		
 		ImageIcon imageIcon = new ImageIcon(dimg);
 		
-//		label.setIcon(new ImageIcon("D:\\Users\\Deborah\\repoPrograTres\\TP1P3\\src\\presentacion\\images\\celda.png"));
 
 		label.setIcon(imageIcon);
 //		label.setFont(new Font("Dialog", Font.BOLD, 20));

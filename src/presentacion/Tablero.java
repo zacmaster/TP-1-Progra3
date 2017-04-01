@@ -23,10 +23,10 @@ public class Tablero extends JPanel{
 		
 		for(int i = 0; i < cantidadDeColumnas; i++){
 			for(int j = 0; j < cantidadDeColumnas; j++){
-				matriz[i][j] = new Celda(posicionXCelda, posicionYCelda);
+				matriz[i][j] = new Celda(posicionXCelda, posicionYCelda, numeroCasillero);
+				System.out.println(numeroCasillero);
 				matriz[i][j].setId(numeroCasillero);
 				matriz[i][j].setText(matriz[i][j].getId()+"");
-//				matriz[i][j].apagar();
 				
 				panel.add(matriz[i][j].getCeldaPanel());
 				posicionXCelda+=distanciaCelda;
