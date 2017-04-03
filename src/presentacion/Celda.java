@@ -23,7 +23,7 @@ public class Celda extends JPanel{
 	private int ancho;
 	private int alto;
 	
-	public Celda(int x, int y,int numeroDeImagen){
+	public Celda(int x, int y,int numeroDeImagen, int numeroDeCelda){
 		id = -1;
 		alto = 71;
 		ancho = 71;
@@ -34,26 +34,14 @@ public class Celda extends JPanel{
 		label = new JLabel();
 		label.setBounds(0, 0, 71, 71);
 //		label.setForeground(Color.BLACK);
-		
-		BufferedImage img = null;
-		try {
-			img = ImageIO.read(getClass().getResource("/Images/Abecedario/"+numeroDeImagen+".png"));
-		} catch (IOException e) {
-		    e.printStackTrace();
-		}
-		
-		Image dimg = img.getScaledInstance(this.ancho, this.alto,
-		        Image.SCALE_SMOOTH);
-		
-		ImageIcon imageIcon = new ImageIcon(dimg);
-		
+		Imagen imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
 
-		label.setIcon(imageIcon);
+		label.setIcon(imagen.getImageIcon());
 //		label.setFont(new Font("Dialog", Font.BOLD, 20));
 		
 		
 		panel.add(label);
-		validate();
+//		validate();
 		
 	}
 	public void encender(int numero){

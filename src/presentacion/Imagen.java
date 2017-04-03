@@ -10,11 +10,13 @@ import javax.swing.ImageIcon;
 public class Imagen {
 	private String[] opciones = {"Clasico","Cerati","Abecedario","Playa"};
 	ImageIcon imageIcon;
-	Imagen(int numeroImagen, int anchoCelda, int altoCelda){
-		String opcion = opciones[numeroImagen];
+	
+	
+	Imagen(int numeroDeImagen, int numeroDeCelda, int anchoCelda, int altoCelda){
+		String opcion = opciones[numeroDeImagen];
 		BufferedImage img = null;
 		try {
-			img = ImageIO.read(getClass().getResource("/Images/Abecedario/"+opcion+".png"));
+			img = ImageIO.read(getClass().getResource("/Images/"+opcion+"/"+numeroDeCelda+".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
