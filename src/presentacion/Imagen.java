@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 public class Imagen {
-	private String[] opciones = {"Clasico","Cerati","Abecedario","Playa"};
+	private String[] opciones = {"Clasico","Cerati","Abecedario","Metallica","Playa"};
 	ImageIcon imageIcon;
 	
 	
