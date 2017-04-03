@@ -37,7 +37,7 @@ public class Celda extends JPanel{
 		
 		BufferedImage img = null;
 		try {
-			img = ImageIO.read(getClass().getResource("/Images/Clasico/"+numeroDeImagen+".png"));
+			img = ImageIO.read(getClass().getResource("/Images/Abecedario/"+numeroDeImagen+".png"));
 		} catch (IOException e) {
 		    e.printStackTrace();
 		}
@@ -80,5 +80,4 @@ public class Celda extends JPanel{
 	public int getId(){
 		return id;
 	}
-	
 }
