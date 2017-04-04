@@ -70,7 +70,7 @@ public class Ventana{
 			public void keyPressed(KeyEvent e) {
 				switch (e.getKeyCode()){
 				case KeyEvent.VK_LEFT:
-					tableroN.mostrarValores();
+					System.out.println(tableroN.mostrarValores());
 					break;
 				}
 			}
