@@ -24,7 +24,7 @@ public class Tablero extends JPanel{
 		for(int i = 0; i < cantidadDeColumnas; i++){
 			for(int j = 0; j < cantidadDeColumnas; j++){
 				matriz[i][j] = new Celda(posicionXCelda, posicionYCelda, 3,numeroCasillero);
-				System.out.println(numeroCasillero);
+//				System.out.println(numeroCasillero);
 				matriz[i][j].setId(numeroCasillero);
 				matriz[i][j].setText(matriz[i][j].getId()+"");
 				

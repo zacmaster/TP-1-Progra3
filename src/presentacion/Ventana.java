@@ -25,6 +25,7 @@ public class Ventana{
 
 	private JFrame frame;
 	private Tablero tablero;
+	private negocio.Tablero tableroN;
 	private int ancho = 300;
 //	private final ButtonGroup buttonGroup = new ButtonGroup();
 
@@ -57,6 +58,7 @@ public class Ventana{
 	private void initialize() {
 		ventanaJuego();
 		tablero = new Tablero(ancho);
+		tableroN = new negocio.Tablero();
 		frame.getContentPane().add(tablero.getTablero());
 		
 		
@@ -68,9 +70,7 @@ public class Ventana{
 			public void keyPressed(KeyEvent e) {
 				switch (e.getKeyCode()){
 				case KeyEvent.VK_LEFT:
-//					frame.getComponents()[0].getC
-					
-//					System.out.println("Tecla presionada!");
+					tableroN.mostrarValores();
 					break;
 				}
 			}
