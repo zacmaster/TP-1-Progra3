@@ -45,7 +45,6 @@ public class Tablero {
 	
 	public Tupla<Integer,Integer> getPosicionCero(){
 		Tupla<Integer, Integer> tupla = null;
-		
 		int i = 0;
 		int j = 0;
 		boolean bandera = false;
