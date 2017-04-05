@@ -22,6 +22,7 @@ public class Celda extends JPanel{
 	private int id;
 	private int ancho;
 	private int alto;
+	private Imagen imagen;
 	
 	public Celda(int x, int y,int numeroDeImagen, int numeroDeCelda){
 		id = -1;
@@ -33,11 +34,9 @@ public class Celda extends JPanel{
 		panel.setBackground(Color.black);
 		label = new JLabel();
 		label.setBounds(0, 0, 71, 71);
-//		label.setForeground(Color.BLACK);
-		Imagen imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
+		imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
 
 		label.setIcon(imagen.getImageIcon());
-//		label.setFont(new Font("Dialog", Font.BOLD, 20));
 		
 		
 		panel.add(label);
@@ -67,5 +66,8 @@ public class Celda extends JPanel{
 	}
 	public int getId(){
 		return id;
+	}
+	public void setImagen(int numeroImagen){
+		
 	}
 }
