@@ -71,6 +71,7 @@ public class Ventana{
 				switch (e.getKeyCode()){
 				case KeyEvent.VK_LEFT:
 					System.out.println(tableroN.mostrarValores());
+					tableroN.moverIzquierda();
 					break;
 				}
 			}
