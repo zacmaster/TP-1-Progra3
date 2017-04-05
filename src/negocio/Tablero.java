@@ -76,7 +76,6 @@ public class Tablero {
 			aux = celdas[posicionCero.y][posicionCero.x+1].getValor();
 			celdas[posicionCero.y][posicionCero.x].setValor(aux);
 			celdas[posicionCero.y][posicionCero.x+1].setValor(0);
-//			System.out.println("esto vale aux"+aux);
 		}
 	}
 	public void moverDerecha(){
@@ -107,7 +106,6 @@ public class Tablero {
 			aux = celdas[posicionCero.y-1][posicionCero.x].getValor();
 			celdas[posicionCero.y][posicionCero.x].setValor(aux);
 			celdas[posicionCero.y-1][posicionCero.x].setValor(0);
-//			System.out.println("esto vale aux"+aux);
 		}
 	}
 	

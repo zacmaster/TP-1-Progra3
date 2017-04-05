@@ -88,6 +88,7 @@ public class Ventana{
 					System.out.println("se mueve abajo");
 					tableroN.moverAbajo();
 					System.out.println(tableroN.mostrarValores());
+					tableroN.moverIzquierda();
 					break;
 				}
 			}
