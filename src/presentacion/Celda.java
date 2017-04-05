@@ -22,35 +22,29 @@ public class Celda extends JPanel{
 	private int id;
 	private int ancho;
 	private int alto;
-	private Imagen imagen;
-	
+	private Imagen imagen = null;
+	private int numeroDeCelda;
 	public Celda(int x, int y,int numeroDeImagen, int numeroDeCelda){
 		id = -1;
 		alto = 71;
 		ancho = 71;
+		this.numeroDeCelda = numeroDeCelda;
 		panel = new Panel();
 		panel.setBounds(x, y, ancho, alto);
 		panel.setLayout(null);
 		panel.setBackground(Color.black);
 		label = new JLabel();
 		label.setBounds(0, 0, 71, 71);
-		imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
-
-		label.setIcon(imagen.getImageIcon());
+		
+		if(numeroDeCelda != 0){
+			imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
+			label.setIcon(imagen.getImageIcon());
+		}
 		
 		
 		panel.add(label);
 //		validate();
 		
-	}
-	public void encender(int numero){
-//		panel.setBackground(Color.gray);
-		label.setText(numero+"");
-		
-	}
-	public void apagar(){
-		panel.setBackground(Color.black);
-		label.setText("");
 	}
 	public Panel getCeldaPanel(){
 		return panel;
@@ -67,8 +61,13 @@ public class Celda extends JPanel{
 	public int getId(){
 		return id;
 	}
-	public void setImagen(int numeroImagen){
-		imagen.setImage(numeroImagen);
+	public void setImagen(int numeroDeImagen){
+		if(numeroDeCelda == 0){
+			imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
+		}
+		else{
+			imagen.setImage(numeroDeImagen);
+		}
 		label.setIcon(imagen.getImageIcon());
 		panel.add(label);
 	}

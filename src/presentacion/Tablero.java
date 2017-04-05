@@ -12,7 +12,7 @@ public class Tablero extends JPanel{
 	private int posicionXCelda = 2;
 	private int posicionYCelda = 2;
 	private int distanciaCelda = 73;
-	private int numeroCasillero = 1;
+	private int numeroCasillero = 0;
 	
 	public Tablero(int anchoVentana){
 		panel = new JPanel();
@@ -25,7 +25,7 @@ public class Tablero extends JPanel{
 			for(int j = 0; j < cantidadDeColumnas; j++){
 				matriz[i][j] = new Celda(posicionXCelda, posicionYCelda,0 ,numeroCasillero);
 				matriz[i][j].setId(numeroCasillero);
-				matriz[i][j].setText(matriz[i][j].getId()+"");
+//				matriz[i][j].setText(matriz[i][j].getId()+"");
 				
 				panel.add(matriz[i][j].getCeldaPanel());
 				posicionXCelda+=distanciaCelda;
