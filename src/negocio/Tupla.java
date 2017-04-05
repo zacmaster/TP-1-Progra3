@@ -1,12 +1,12 @@
 package negocio;
 
-public class Tupla<X,Y> {
-	public final X x;
+public class Tupla<Y,X> {
 	public final Y y;
+	public final X x;
 	
-	public Tupla(X x, Y y){
-		this.x = x;
+	public Tupla(Y y,X x){
 		this.y = y;
+		this.x = x;
 	}
 
 }
