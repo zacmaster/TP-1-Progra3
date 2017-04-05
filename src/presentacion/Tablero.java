@@ -35,6 +35,9 @@ public class Tablero extends JPanel{
 			posicionYCelda+=distanciaCelda;
 		}
 	}
+	public Celda[][] getMatriz(){
+		return matriz;
+	}
 	public JPanel getTablero(){
 		return panel;
 	}

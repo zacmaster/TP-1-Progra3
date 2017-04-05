@@ -68,6 +68,8 @@ public class Celda extends JPanel{
 		return id;
 	}
 	public void setImagen(int numeroImagen){
-		
+		imagen.setImage(numeroImagen);
+		label.setIcon(imagen.getImageIcon());
+		panel.add(label);
 	}
 }

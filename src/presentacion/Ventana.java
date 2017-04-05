@@ -73,6 +73,7 @@ public class Ventana{
 					System.out.println("se mueve a la izquierda");
 					tableroN.moverIzquierda();
 					System.out.println(tableroN.mostrarValores());
+					tablero.getMatriz()[0][0].setImagen(5);
 					break;
 				case KeyEvent.VK_RIGHT:
 					System.out.println("se mueve a la derecha");
