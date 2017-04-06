@@ -36,10 +36,8 @@ public class Celda extends JPanel{
 		label = new JLabel();
 		label.setBounds(0, 0, 71, 71);
 		
-		if(numeroDeCelda != 0){
-			imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
-			label.setIcon(imagen.getImageIcon());
-		}
+		imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
+		label.setIcon(imagen.getImageIcon());
 		
 		
 		panel.add(label);
@@ -66,14 +64,7 @@ public class Celda extends JPanel{
 		this.numeroDeCelda = numeroDeCelda;
 	}
 	public void setImagen(int numeroDeImagen){
-		if(numeroDeCelda == 0){
-			imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
+			imagen.setImage(numeroDeImagen);
 			label.setIcon(imagen.getImageIcon());
-			panel.add(label);
-		}
-		else{
-			System.out.println(numeroDeCelda);
-			imagen = null;
-		}
 	}
 }

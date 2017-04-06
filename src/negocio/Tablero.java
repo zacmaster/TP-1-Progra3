@@ -109,7 +109,6 @@ public class Tablero {
 		}
 	}
 	
-	
 	public Celda[][] getCeldas() {
 		return celdas;
 	}
