@@ -109,6 +109,15 @@ public class Tablero {
 		}
 	}
 	
+	
+	public Celda[][] getCeldas() {
+		return celdas;
+	}
+
+	public void setCeldas(Celda[][] celdas) {
+		this.celdas = celdas;
+	}
+
 	public void cambiarValores(int id1, int id2){
 		
 	}

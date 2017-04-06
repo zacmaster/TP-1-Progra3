@@ -49,9 +49,6 @@ public class Celda extends JPanel{
 	public Panel getCeldaPanel(){
 		return panel;
 	}
-	public void setText(String texto){
-		label.setText(texto);
-	}
 	public int getAncho(){
 		return ancho;
 	}
@@ -61,14 +58,22 @@ public class Celda extends JPanel{
 	public int getId(){
 		return id;
 	}
+	
+	public int getNumeroDeCelda() {
+		return numeroDeCelda;
+	}
+	public void setNumeroDeCelda(int numeroDeCelda) {
+		this.numeroDeCelda = numeroDeCelda;
+	}
 	public void setImagen(int numeroDeImagen){
 		if(numeroDeCelda == 0){
 			imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
+			label.setIcon(imagen.getImageIcon());
+			panel.add(label);
 		}
 		else{
-			imagen.setImage(numeroDeImagen);
+			System.out.println(numeroDeCelda);
+			imagen = null;
 		}
-		label.setIcon(imagen.getImageIcon());
-		panel.add(label);
 	}
 }

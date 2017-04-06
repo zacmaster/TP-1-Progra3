@@ -58,7 +58,7 @@ public class Ventana{
 	private void initialize() {
 		ventanaJuego();
 		tablero = new Tablero(ancho);
-		tableroN = new negocio.Tablero();
+		tableroN = tablero.getTableroN();
 		frame.getContentPane().add(tablero.getTablero());
 		
 		
@@ -73,7 +73,8 @@ public class Ventana{
 					System.out.println("se mueve a la izquierda");
 					tableroN.moverIzquierda();
 					System.out.println(tableroN.mostrarValores());
-					tablero.getMatriz()[0][0].setImagen(5);
+					tablero.actualizarTablero();
+//					tablero.getMatriz()[0][0].setImagen(5);
 					tableroN.moverIzquierda();
 					break;
 				case KeyEvent.VK_RIGHT:
