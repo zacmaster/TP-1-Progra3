@@ -38,11 +38,13 @@ public class Tablero extends JPanel{
 		}
 	}
 	public void actualizarTablero(){
-		System.out.println("Intento actualizar");
 		for(int i = 0; i < cantidadDeColumnas; i++){
 			for(int j = 0; j < cantidadDeColumnas; j++){
-				matriz[i][j].setNumeroDeCelda(tableroNegocio.getCeldas()[i][j].getValor());
-				matriz[i][j].setImagen(tableroNegocio.getCeldas()[i][j].getValor());
+				if(matriz[i][j].getNumeroDeCelda() != tableroNegocio.getCeldas()[i][j].getValor()){
+					matriz[i][j].setNumeroDeCelda(tableroNegocio.getCeldas()[i][j].getValor());
+					matriz[i][j].setImagen(tableroNegocio.getCeldas()[i][j].getValor());
+					
+				}
 			}
 		}
 	}

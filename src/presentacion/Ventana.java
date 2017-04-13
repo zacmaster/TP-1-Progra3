@@ -70,29 +70,20 @@ public class Ventana{
 			public void keyPressed(KeyEvent e) {
 				switch (e.getKeyCode()){
 				case KeyEvent.VK_LEFT:
-//					System.out.println("se mueve a la izquierda");
-//					tableroN.moverIzquierda();
-					System.out.println(tableroN.mostrarValores());
 					tableroN.moverIzquierda();
 					tablero.actualizarTablero();
 					break;
 				case KeyEvent.VK_RIGHT:
-//					System.out.println("se mueve a la derecha");
 					tableroN.moverDerecha();
-//					System.out.println(tableroN.mostrarValores());
 					tablero.actualizarTablero();
 					break;
 				case KeyEvent.VK_UP:
-//					System.out.println("se mueve arriba");
 					tableroN.moverArriba();
 					tablero.actualizarTablero();
-//					System.out.println(tableroN.mostrarValores());
 					break;
 				case KeyEvent.VK_DOWN:
-//					System.out.println("se mueve abajo");
 					tableroN.moverAbajo();
 					tablero.actualizarTablero();
-//					System.out.println(tableroN.mostrarValores());
 					break;
 				}
 			}
