@@ -41,7 +41,7 @@ public class Celda extends JPanel{
 		
 		
 		panel.add(label);
-//		validate();
+		validate();
 		
 	}
 	public Panel getCeldaPanel(){

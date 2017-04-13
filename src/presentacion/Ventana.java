@@ -72,18 +72,30 @@ public class Ventana{
 				case KeyEvent.VK_LEFT:
 					tableroN.moverIzquierda();
 					tablero.actualizarTablero();
+					if(tableroN.juegoGanado()){
+						System.out.println("Juego ganado!");
+					}
 					break;
 				case KeyEvent.VK_RIGHT:
 					tableroN.moverDerecha();
 					tablero.actualizarTablero();
+					if(tableroN.juegoGanado()){
+						System.out.println("Juego ganado!");
+					}
 					break;
 				case KeyEvent.VK_UP:
 					tableroN.moverArriba();
 					tablero.actualizarTablero();
+					if(tableroN.juegoGanado()){
+						System.out.println("Juego ganado!");
+					}
 					break;
 				case KeyEvent.VK_DOWN:
 					tableroN.moverAbajo();
 					tablero.actualizarTablero();
+					if(tableroN.juegoGanado()){
+						System.out.println("Juego ganado!");
+					}
 					break;
 				}
 			}

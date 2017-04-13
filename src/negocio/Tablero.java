@@ -116,16 +116,25 @@ public class Tablero {
 	public void setCeldas(Celda[][] celdas) {
 		this.celdas = celdas;
 	}
+	public boolean juegoGanado(){
+		int mayor = celdas[0][0].getValor();
+		boolean ganado = true;
+		for (int i = 0; i < cantidadDeColumnas; i++) {
+			for (int j = 0; j < cantidadDeColumnas; j++) {
+				if(mayor == 0)celdas[0][1].getValor();
+				if(celdas[i][j].getValor() != 0){
+					if(celdas[i][j].getValor() > mayor){
+						mayor = celdas[i][j].getValor();
+					}
+					else{
+						ganado = false;
+					}
+				}
+			}
+		}
+		return ganado;
+	}
 
-	public void cambiarValores(int id1, int id2){
 		
-	}
-		
-	public static void main(String[] args) {
-		Tablero tb = new Tablero();
-		System.out.println(tb.mostrarIds());
-		System.out.println(tb.mostrarValores());
-		System.out.println(tb.posicionCero.y+";"+ tb.posicionCero.x);
-	}
 
 }
