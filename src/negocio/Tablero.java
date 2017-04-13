@@ -3,137 +3,91 @@ package negocio;
 import java.util.ArrayList;
 
 public class Tablero {
-	private int cantidadDeColumnas = 4;
-	private Celda[][] celdas;
-	private int contador;
-//	private 
-	private Tupla<Integer,Integer>posicionCero;
+	private final int cantidadDeCeldas = 16;
+	private ArrayList<Celda> celdas;
+	private int posicionCero;
 	public Tablero(){
-		NumeroAleatorio numeroAleatorio = new NumeroAleatorio(0,15);
-		contador = 0;
-		celdas = new Celda[cantidadDeColumnas][cantidadDeColumnas];
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
-				celdas[i][j] = new Celda(numeroAleatorio.generar());
-				contador++;
-			}
+		celdas = new ArrayList<Celda>();
+		for (int i = 0; i < cantidadDeCeldas; i++) {
+				celdas.add(new Celda(i));
 		}
 		posicionCero = getPosicionCero();
 	}
 	
-	public String mostrarIds(){
-		StringBuilder sb = new StringBuilder();
-		sb.append("IDs: \n");
-		for (int i = 0; i < celdas.length; i++) {
-			for (int j = 0; j < celdas.length; j++) {
-				sb.append(celdas[i][j].getId()+" ");
-			}
-			sb.append("\n");
-		}
-		return sb.toString();
-	}
 	
 	public String mostrarValores(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("Valores: \n");
-		for (int i = 0; i < celdas.length; i++) {
-			for (int j = 0; j < celdas.length; j++) {
-				sb.append(celdas[i][j].getValor()+" ");
+		for (int i = 0; i < cantidadDeCeldas; i++) {
+			sb.append(celdas.get(i).getValor()+" ");
+			if(i== 3 || i==7 || i==11){
+				sb.append("\n");
 			}
-			sb.append("\n");
 		}
 		return sb.toString();
 	}
 	
 	
-	public Tupla<Integer,Integer> getPosicionCero(){
-		Tupla<Integer, Integer> tupla = null;
+	public int getPosicionCero(){
+		int posicionDelCero = -1;
 		int i = 0;
-		int j = 0;
-		boolean bandera = false;
-		while(i < celdas.length) {
-			while(j < celdas[i].length){
-				if(celdas[i][j].getValor() == 0){
-					tupla = new Tupla<Integer, Integer>(i,j);
-					bandera = true;
-					break;
-				}
-				j++;
-			}
-			j = 0;
-			i++;
-			if(bandera){
+		while(i < celdas.size()){
+			if(celdas.get(i).getValor() == 0){
+				posicionDelCero = i;
 				break;
 			}
+			i++;
 		}
-		return tupla;
+		System.out.println("----posicion del cero----"+posicionDelCero);
+		return posicionDelCero;
 	}
 	
 	public void moverIzquierda(){
 		posicionCero = getPosicionCero();
-		if(!(posicionCero.x == cantidadDeColumnas-1)){
+		if(posicionCero != 3 && posicionCero != 7 && posicionCero != 11 && posicionCero != 15){
 			int aux = -1;
-			aux = celdas[posicionCero.y][posicionCero.x+1].getValor();
-			celdas[posicionCero.y][posicionCero.x].setValor(aux);
-			celdas[posicionCero.y][posicionCero.x+1].setValor(0);
+			aux = celdas.get(posicionCero+1).getValor();
+			celdas.get(posicionCero).setValor(aux);
+			celdas.get(posicionCero+1).setValor(0);
 		}
 	}
 	public void moverDerecha(){
 		posicionCero = getPosicionCero();
-		if(!(posicionCero.x == 0)){
+		if(posicionCero != 0 && posicionCero != 4 && posicionCero != 8 && posicionCero != 12){
 			int aux = -1;
-			aux = celdas[posicionCero.y][posicionCero.x-1].getValor();
-			celdas[posicionCero.y][posicionCero.x].setValor(aux);
-			celdas[posicionCero.y][posicionCero.x-1].setValor(0);
-//			System.out.println("esto vale aux"+aux);
+			aux = celdas.get(posicionCero-1).getValor();
+			System.out.println(aux);
+			celdas.get(posicionCero).setValor(aux);
+			celdas.get(posicionCero-1).setValor(0);
 		}
 	}
 	public void moverArriba(){
 		posicionCero = getPosicionCero();
-		if(!(posicionCero.y == cantidadDeColumnas-1)){
+		if(posicionCero != 12 && posicionCero != 13 && posicionCero != 14 && posicionCero != 15){
 			int aux = -1;
-			aux = celdas[posicionCero.y+1][posicionCero.x].getValor();
-			celdas[posicionCero.y][posicionCero.x].setValor(aux);
-			celdas[posicionCero.y+1][posicionCero.x].setValor(0);
-//			System.out.println("esto vale aux"+aux);
+			aux = celdas.get(posicionCero+4).getValor();
+			celdas.get(posicionCero).setValor(aux);
+			celdas.get(posicionCero+4).setValor(0);
+			
 		}
 	}
 	
 	public void moverAbajo(){
 		posicionCero = getPosicionCero();
-		if(!(posicionCero.y == 0)){
+		if(posicionCero != 0 && posicionCero != 1 && posicionCero != 2 && posicionCero != 3){
+			System.out.println("entro al if"+posicionCero);
 			int aux = -1;
-			aux = celdas[posicionCero.y-1][posicionCero.x].getValor();
-			celdas[posicionCero.y][posicionCero.x].setValor(aux);
-			celdas[posicionCero.y-1][posicionCero.x].setValor(0);
+			aux = celdas.get(posicionCero-4).getValor();
+			celdas.get(posicionCero).setValor(aux);
+			celdas.get(posicionCero-4).setValor(0);
+			
 		}
 	}
 	
-	public Celda[][] getCeldas() {
+	public ArrayList<Celda> getCeldas() {
 		return celdas;
 	}
 
-	public void setCeldas(Celda[][] celdas) {
-		this.celdas = celdas;
-	}
-	public boolean juegoGanado(){
-		int mayor = celdas[0][0].getValor();
-		boolean ganado = true;
-		for (int i = 0; i < cantidadDeColumnas; i++) {
-			for (int j = 0; j < cantidadDeColumnas; j++) {
-				if(mayor == 0)celdas[0][1].getValor();
-				if(celdas[i][j].getValor() != 0){
-					if(celdas[i][j].getValor() > mayor){
-						mayor = celdas[i][j].getValor();
-					}
-					else{
-						ganado = false;
-					}
-				}
-			}
-		}
-		return ganado;
-	}
 
 		
 

@@ -57,9 +57,11 @@ public class Ventana{
 	 */
 	private void initialize() {
 		ventanaJuego();
-		tablero = new Tablero(ancho);
-		tableroN = tablero.getTableroN();
-		frame.getContentPane().add(tablero.getTablero());
+//		tablero = new Tablero(ancho);
+		tableroN = new negocio.Tablero();
+		System.out.println(tableroN.mostrarValores());
+		System.out.println(tableroN.getPosicionCero());
+//		frame.getContentPane().add(tablero.getTablero());
 		
 		
 		
@@ -71,31 +73,19 @@ public class Ventana{
 				switch (e.getKeyCode()){
 				case KeyEvent.VK_LEFT:
 					tableroN.moverIzquierda();
-					tablero.actualizarTablero();
-					if(tableroN.juegoGanado()){
-						System.out.println("Juego ganado!");
-					}
+					System.out.println(tableroN.mostrarValores());
 					break;
 				case KeyEvent.VK_RIGHT:
 					tableroN.moverDerecha();
-					tablero.actualizarTablero();
-					if(tableroN.juegoGanado()){
-						System.out.println("Juego ganado!");
-					}
+					System.out.println(tableroN.mostrarValores());
 					break;
 				case KeyEvent.VK_UP:
 					tableroN.moverArriba();
-					tablero.actualizarTablero();
-					if(tableroN.juegoGanado()){
-						System.out.println("Juego ganado!");
-					}
+					System.out.println(tableroN.mostrarValores());
 					break;
 				case KeyEvent.VK_DOWN:
 					tableroN.moverAbajo();
-					tablero.actualizarTablero();
-					if(tableroN.juegoGanado()){
-						System.out.println("Juego ganado!");
-					}
+					System.out.println(tableroN.mostrarValores());
 					break;
 				}
 			}
@@ -106,11 +96,11 @@ public class Ventana{
 	
 	private void ventanaJuego() {
 		frame = new JFrame();
-		frame.getContentPane().setLayout(null);
-		frame.setResizable(false);
-		frame.getContentPane().setBackground(new Color(46,204,113));
-		frame.setBounds(400, 100, ancho, 450);
-		frame.getContentPane().setForeground(Color.RED);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		frame.getContentPane().setLayout(null);
+//		frame.setResizable(false);
+//		frame.getContentPane().setBackground(new Color(46,204,113));
+//		frame.setBounds(400, 100, ancho, 450);
+//		frame.getContentPane().setForeground(Color.RED);
+//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

@@ -1,20 +1,10 @@
 package presentacion;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import java.awt.Panel;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-
 import javax.swing.JPanel;
 
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Label;
 
 public class Celda extends JPanel{
 	private Panel panel;

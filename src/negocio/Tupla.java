@@ -8,5 +8,9 @@ public class Tupla<Y,X> {
 		this.y = y;
 		this.x = x;
 	}
+	public Tupla(){
+		y = null;
+		x = null;
+	}
 
 }
