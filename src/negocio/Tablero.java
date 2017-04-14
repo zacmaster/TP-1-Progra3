@@ -38,7 +38,6 @@ public class Tablero {
 			}
 			i++;
 		}
-		System.out.println("----posicion del cero----"+posicionDelCero);
 		return posicionDelCero;
 	}
 	
