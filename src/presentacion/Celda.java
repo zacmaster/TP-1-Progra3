@@ -22,7 +22,8 @@ public class Celda extends JPanel{
 		panel = new Panel();
 		panel.setBounds(x, y, ancho, alto);
 		panel.setLayout(null);
-		panel.setBackground(Color.black);
+//		panel.setBackground(Color.black);
+		panel.setBackground(new Color(0,102,204));
 		label = new JLabel();
 		label.setBounds(0, 0, 71, 71);
 		

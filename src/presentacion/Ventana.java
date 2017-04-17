@@ -1,6 +1,6 @@
 package presentacion;
 
-import java.awt.EventQueue;
+//import java.awt.EventQueue;
 import java.awt.Label;
 import java.awt.Toolkit;
 
@@ -19,48 +19,39 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.CardLayout;
 
 public class Ventana{
 
-	private JFrame frame;
+	JFrame frame;
 	private Tablero tablero;
-	private negocio.Tablero tableroN;
-	private int ancho = 300;
-//	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private int ancho = 295;
+	private int alto = 410;
+	private int cantidadDeMovimientos = 0;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ventana window = new Ventana();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the application.
-	 */
 	public Ventana() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		ventanaJuego();
 		tablero = new Tablero(ancho);
-//		System.out.println(tableroN.mostrarValores());
-//		System.out.println(tableroN.getPosicionCero());
 		frame.getContentPane().add(tablero.getTablero());
+		
+		JLabel textoMovimientos = new JLabel();
+		textoMovimientos.setText("Cantidad de movimientos: ");
+		textoMovimientos.setFont(new Font("Arial",Font.PLAIN, 18));
+		textoMovimientos.setForeground(Color.white);
+		textoMovimientos.setBounds(2,345,240,40);
+		frame.getContentPane().add(textoMovimientos);
+		
+		JLabel cantidadDeMovimientos = new JLabel();
+		cantidadDeMovimientos.setText(this.cantidadDeMovimientos+"");
+		cantidadDeMovimientos.setFont(new Font("Arial",Font.PLAIN, 18));
+		cantidadDeMovimientos.setForeground(Color.white);
+		cantidadDeMovimientos.setBounds(250,345,240,40);
+		frame.getContentPane().add(cantidadDeMovimientos);
 		
 		
 		
@@ -96,8 +87,8 @@ public class Ventana{
 		frame = new JFrame();
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
-		frame.getContentPane().setBackground(new Color(46,204,113));
-		frame.setBounds(400, 100, ancho, 450);
+		frame.getContentPane().setBackground(new Color(0,102,204));
+		frame.setBounds(400, 100, ancho, alto);
 		frame.getContentPane().setForeground(Color.RED);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

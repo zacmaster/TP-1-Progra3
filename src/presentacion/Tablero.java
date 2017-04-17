@@ -12,14 +12,15 @@ public class Tablero extends JPanel{
 	private final int cantidadDeCeldas = 16;
 	private int posicionXCelda = 2;
 	private int posicionYCelda = 2;
-	private int distanciaCelda = 73;
+	private int distanciaCelda = 71;
 	private negocio.Tablero tableroNegocio = null;
 	
 	public Tablero(int anchoVentana){
 		tableroNegocio = new negocio.Tablero();
 		
 		panel = new JPanel();
-		panel.setBackground(Color.black);
+//		panel.setBackground(Color.black);
+		panel.setBackground(new Color(0,102,204));
 		panel.setBounds(0, 60, 300, 294);
 		panel.setLayout(null);
 		matriz = new ArrayList<Celda>();
@@ -54,6 +55,7 @@ public class Tablero extends JPanel{
 				matriz.get(i).setImagen(tableroNegocio.getCeldas().get(i).getValor());
 			}
 		}
+		System.out.println("Se gano:"+ tableroNegocio.seGano());
 	}
 	public void moverIzquierda(){
 		tableroNegocio.moverIzquierda();

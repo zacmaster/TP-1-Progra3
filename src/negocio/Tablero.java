@@ -16,7 +16,7 @@ public class Tablero {
 		Collections.shuffle(valores);
 		celdas = new ArrayList<Celda>();
 		for (int i = 0; i < cantidadDeCeldas; i++) {
-				celdas.add(new Celda(valores.get(i)));
+			celdas.add(new Celda(valores.get(i)));
 		}
 		posicionCero = getPosicionCero();
 	}
@@ -88,6 +88,17 @@ public class Tablero {
 			celdas.get(posicionCero-4).setValor(0);
 			
 		}
+	}
+	
+	public boolean seGano(){
+		boolean gano = true;
+		for (int i = 0; i < cantidadDeCeldas; i++) {
+			if(i != 15){
+				if(i+1 != celdas.get(i).getValor())gano = false;
+					
+			}
+		}
+		return gano;
 	}
 	
 	public ArrayList<Celda> getCeldas() {
