@@ -57,11 +57,10 @@ public class Ventana{
 	 */
 	private void initialize() {
 		ventanaJuego();
-//		tablero = new Tablero(ancho);
-		tableroN = new negocio.Tablero();
-		System.out.println(tableroN.mostrarValores());
-		System.out.println(tableroN.getPosicionCero());
-//		frame.getContentPane().add(tablero.getTablero());
+		tablero = new Tablero(ancho);
+//		System.out.println(tableroN.mostrarValores());
+//		System.out.println(tableroN.getPosicionCero());
+		frame.getContentPane().add(tablero.getTablero());
 		
 		
 		
@@ -72,22 +71,21 @@ public class Ventana{
 			public void keyPressed(KeyEvent e) {
 				switch (e.getKeyCode()){
 				case KeyEvent.VK_LEFT:
-					tableroN.moverIzquierda();
-					System.out.println(tableroN.mostrarValores());
+					tablero.moverIzquierda();
 					break;
 				case KeyEvent.VK_RIGHT:
-					tableroN.moverDerecha();
-					System.out.println(tableroN.mostrarValores());
+					tablero.moverDerecha();
 					break;
 				case KeyEvent.VK_UP:
-					tableroN.moverArriba();
-					System.out.println(tableroN.mostrarValores());
+					tablero.moverArriba();
 					break;
 				case KeyEvent.VK_DOWN:
-					tableroN.moverAbajo();
-					System.out.println(tableroN.mostrarValores());
+					tablero.moverAbajo();
 					break;
+				case KeyEvent.VK_ESCAPE:
+					System.exit(0);
 				}
+				
 			}
 
 		});
@@ -96,11 +94,11 @@ public class Ventana{
 	
 	private void ventanaJuego() {
 		frame = new JFrame();
-//		frame.getContentPane().setLayout(null);
-//		frame.setResizable(false);
-//		frame.getContentPane().setBackground(new Color(46,204,113));
-//		frame.setBounds(400, 100, ancho, 450);
-//		frame.getContentPane().setForeground(Color.RED);
-//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
+		frame.getContentPane().setBackground(new Color(46,204,113));
+		frame.setBounds(400, 100, ancho, 450);
+		frame.getContentPane().setForeground(Color.RED);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

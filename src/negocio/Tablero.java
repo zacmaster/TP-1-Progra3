@@ -1,15 +1,22 @@
 package negocio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Tablero {
 	private final int cantidadDeCeldas = 16;
 	private ArrayList<Celda> celdas;
+	private ArrayList<Integer> valores = new ArrayList<Integer>();
 	private int posicionCero;
+	
 	public Tablero(){
+		for (int i = 0; i < 16; i++) {
+			valores.add(i);
+		}
+		Collections.shuffle(valores);
 		celdas = new ArrayList<Celda>();
 		for (int i = 0; i < cantidadDeCeldas; i++) {
-				celdas.add(new Celda(i));
+				celdas.add(new Celda(valores.get(i)));
 		}
 		posicionCero = getPosicionCero();
 	}
@@ -19,7 +26,9 @@ public class Tablero {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Valores: \n");
 		for (int i = 0; i < cantidadDeCeldas; i++) {
+			
 			sb.append(celdas.get(i).getValor()+" ");
+			
 			if(i== 3 || i==7 || i==11){
 				sb.append("\n");
 			}
@@ -55,7 +64,6 @@ public class Tablero {
 		if(posicionCero != 0 && posicionCero != 4 && posicionCero != 8 && posicionCero != 12){
 			int aux = -1;
 			aux = celdas.get(posicionCero-1).getValor();
-			System.out.println(aux);
 			celdas.get(posicionCero).setValor(aux);
 			celdas.get(posicionCero-1).setValor(0);
 		}
@@ -74,7 +82,6 @@ public class Tablero {
 	public void moverAbajo(){
 		posicionCero = getPosicionCero();
 		if(posicionCero != 0 && posicionCero != 1 && posicionCero != 2 && posicionCero != 3){
-			System.out.println("entro al if"+posicionCero);
 			int aux = -1;
 			aux = celdas.get(posicionCero-4).getValor();
 			celdas.get(posicionCero).setValor(aux);
