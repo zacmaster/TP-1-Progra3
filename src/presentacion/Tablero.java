@@ -18,7 +18,7 @@ public class Tablero extends JPanel{
 		
 		panel = new JPanel();
 		panel.setBackground(new Color(0,102,204));
-		panel.setBounds(0, 60, 300, 294);
+		panel.setBounds(0, 0, 300, 294);
 		panel.setLayout(null);
 		
 		for (int i = 0; i < cantidadDeCeldas; i++) {
