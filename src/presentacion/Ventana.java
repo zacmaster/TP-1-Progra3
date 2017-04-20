@@ -36,9 +36,11 @@ public class Ventana{
 	private int ancho = 295;
 	private int alto = 370;
 	private int cantidadDeMovimientos = 0;
+	JLabel contadorMovimientosEtiqueta;
 	private JMenuBar menuBar;
 	private JMenu menu;
 	private JMenuItem menuReiniciar,menuSalir, menuComoJugar;
+	
 
 	public Ventana() {
 		initialize();
@@ -57,7 +59,7 @@ public class Ventana{
 		menuReiniciar = new JMenuItem("Reiniciar");
 		menuReiniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tablero.reiniciar();
+				reiniciar();
 			}
 		});
 		menu.add(menuReiniciar);
@@ -96,48 +98,67 @@ public class Ventana{
 		textoMovimientos.setText("Cantidad de movimientos: ");
 		textoMovimientos.setFont(new Font("Arial",Font.PLAIN, 18));
 		textoMovimientos.setForeground(Color.white);
-		textoMovimientos.setBounds(2,280,240,40);
+		textoMovimientos.setBounds(2,283,240,40);
 		frame.getContentPane().add(textoMovimientos);
 		
-		JLabel cantidadDeMovimientos = new JLabel();
-		cantidadDeMovimientos.setText(this.cantidadDeMovimientos+"");
-		cantidadDeMovimientos.setFont(new Font("Arial",Font.PLAIN, 18));
-		cantidadDeMovimientos.setForeground(Color.white);
-		cantidadDeMovimientos.setBounds(250,280,240,40);
-		frame.getContentPane().add(cantidadDeMovimientos);
+		contadorMovimientosEtiqueta = new JLabel();
+		contadorMovimientosEtiqueta.setText(this.cantidadDeMovimientos+"");
+		contadorMovimientosEtiqueta.setFont(new Font("Arial",Font.PLAIN, 18));
+		contadorMovimientosEtiqueta.setForeground(Color.white);
+		contadorMovimientosEtiqueta.setBounds(250,283,240,40);
+		frame.getContentPane().add(contadorMovimientosEtiqueta);
 		
 		
 		
 		
-		if(!tablero.seGano()){
-			frame.addKeyListener(new KeyAdapter(){
-				@Override
-				public void keyPressed(KeyEvent e) {
-					switch (e.getKeyCode()){
-					case KeyEvent.VK_LEFT:
-						tablero.moverIzquierda();
-						break;
-					case KeyEvent.VK_RIGHT:
-						tablero.moverDerecha();
-						break;
-					case KeyEvent.VK_UP:
-						tablero.moverArriba();
-						break;
-					case KeyEvent.VK_DOWN:
-						tablero.moverAbajo();
-						break;
-					case KeyEvent.VK_ESCAPE:
-						System.exit(0);
-					}
-					
+		
+		frame.addKeyListener(new KeyAdapter(){
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(!tablero.seGano()){
+					mover(e);
+					contadorMovimientosEtiqueta.setText(cantidadDeMovimientos+"");
 				}
-
-			});
-			
+				else{
+					JOptionPane.showMessageDialog(frame, "Has ganado!!");
+				}
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+					System.exit(0);
+				}
+			}
+		});
 		}
-
+	
+	
+	
+	private void mover(KeyEvent e){
+		switch(e.getKeyCode()){
+		case KeyEvent.VK_LEFT:
+			if(tablero.moverIzquierda()){
+				cantidadDeMovimientos++;
+			}
+			break;
+		case KeyEvent.VK_RIGHT:
+			if(tablero.moverDerecha()){
+				cantidadDeMovimientos++;
+			}
+			break;
+		case KeyEvent.VK_UP:
+			if(tablero.moverArriba()){
+				cantidadDeMovimientos++;
+			}
+			break;
+		case KeyEvent.VK_DOWN:
+			if(tablero.moverAbajo()){
+				cantidadDeMovimientos++;
+			}
+			break;
 		}
-	private void mover(String direccion){
+	}
+	private void reiniciar(){
+		tablero.reiniciar();
+		cantidadDeMovimientos = 0;
+		contadorMovimientosEtiqueta.setText(this.cantidadDeMovimientos+"");
 		
 	}
 			

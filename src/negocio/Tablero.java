@@ -116,6 +116,16 @@ public class Tablero {
 	public ArrayList<Celda> getCeldas() {
 		return celdas;
 	}
+	public void ganar(){
+		for (int i = 0; i < cantidadDeCeldas; i++) {
+			if(i == 15){
+				celdas.get(i).setValor(0);
+			}
+			else{
+				celdas.get(i).setValor(i+1);
+			}
+		}
+	}
 
 
 		

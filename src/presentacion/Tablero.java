@@ -15,7 +15,7 @@ public class Tablero extends JPanel{
 	
 	public Tablero(int anchoVentana){
 		tableroNegocio = new negocio.Tablero();
-		
+//		tableroNegocio.ganar();
 		panel = new JPanel();
 		panel.setBackground(new Color(0,102,204));
 		panel.setBounds(0, 0, 300, 294);
