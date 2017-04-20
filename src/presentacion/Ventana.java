@@ -85,6 +85,8 @@ public class Ventana{
 	
 	private void ventanaJuego() {
 		frame = new JFrame();
+//		frame.setIconImage(new Imagen);
+		frame.setTitle("Sliding Puzzle");
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(new Color(0,102,204));

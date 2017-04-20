@@ -13,9 +13,9 @@ public class Celda extends JPanel{
 	private int ancho;
 	private int alto;
 	private Imagen imagen = null;
-	private int numeroDeCelda;
+	private Integer numeroDeCelda;
 	
-	public Celda(int x, int y,int numeroDeImagen, int numeroDeCelda){
+	public Celda(int x, int y, Integer numeroDeCelda){
 		alto = 71;
 		ancho = 71;
 		this.numeroDeCelda = numeroDeCelda;
@@ -26,8 +26,8 @@ public class Celda extends JPanel{
 		panel.setBackground(new Color(0,102,204));
 		label = new JLabel();
 		label.setBounds(0, 0, 71, 71);
-		
-		imagen = new Imagen(numeroDeImagen, numeroDeCelda,ancho, alto);
+		String celdaTexto = this.numeroDeCelda.toString();
+		imagen = new Imagen(celdaTexto,ancho, alto);
 		label.setIcon(imagen.getImageIcon());
 		
 		
@@ -47,8 +47,8 @@ public class Celda extends JPanel{
 	public void setNumeroDeCelda(int numeroDeCelda) {
 		this.numeroDeCelda = numeroDeCelda;
 	}
-	public void setImagen(int numeroDeImagen){
-			imagen.setImage(numeroDeImagen);
+	public void setImagen(Integer numeroDeImagen){
+			imagen.setImage(numeroDeImagen.toString());
 			label.setIcon(imagen.getImageIcon());
 	}
 }

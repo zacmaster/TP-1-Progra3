@@ -28,7 +28,7 @@ public class Tablero extends JPanel{
 		for (int i = 0; i < cantidadDeCeldas; i++) {
 			
 			matriz.add(new Celda(posicionXCelda,posicionYCelda,
-			0, tableroNegocio.getCeldas().get(i).getValor()));
+			tableroNegocio.getCeldas().get(i).getValor()));
 			
 			panel.add(matriz.get(i).getCeldaPanel());
 			posicionXCelda+=distanciaCelda;
