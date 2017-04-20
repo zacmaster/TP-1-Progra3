@@ -75,6 +75,7 @@ public class Tablero extends JPanel{
 		boolean seMovio = false;
 		if(tableroNegocio.moverArriba()){
 			actualizarTablero();
+			seMovio = true;
 		}
 		return seMovio;
 	}
@@ -82,6 +83,7 @@ public class Tablero extends JPanel{
 		boolean seMovio = false;
 		if(tableroNegocio.moverAbajo()){
 			actualizarTablero();
+			seMovio = true;
 		}
 		return seMovio;
 	}
