@@ -57,6 +57,7 @@ public class Ventana{
 		menuReiniciar = new JMenuItem("Reiniciar");
 		menuReiniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				tablero.reiniciar();
 			}
 		});
 		menu.add(menuReiniciar);
@@ -108,33 +109,38 @@ public class Ventana{
 		
 		
 		
-		
-		frame.addKeyListener(new KeyAdapter(){
-			@Override
-			public void keyPressed(KeyEvent e) {
-				switch (e.getKeyCode()){
-				case KeyEvent.VK_LEFT:
-					tablero.moverIzquierda();
-					break;
-				case KeyEvent.VK_RIGHT:
-					tablero.moverDerecha();
-					break;
-				case KeyEvent.VK_UP:
-					tablero.moverArriba();
-					break;
-				case KeyEvent.VK_DOWN:
-					tablero.moverAbajo();
-					break;
-				case KeyEvent.VK_ESCAPE:
-					System.exit(0);
+		if(!tablero.seGano()){
+			frame.addKeyListener(new KeyAdapter(){
+				@Override
+				public void keyPressed(KeyEvent e) {
+					switch (e.getKeyCode()){
+					case KeyEvent.VK_LEFT:
+						tablero.moverIzquierda();
+						break;
+					case KeyEvent.VK_RIGHT:
+						tablero.moverDerecha();
+						break;
+					case KeyEvent.VK_UP:
+						tablero.moverArriba();
+						break;
+					case KeyEvent.VK_DOWN:
+						tablero.moverAbajo();
+						break;
+					case KeyEvent.VK_ESCAPE:
+						System.exit(0);
+					}
+					
 				}
-				
-			}
 
-		});
+			});
+			
+		}
+
+		}
+	private void mover(String direccion){
 		
 	}
-	
+			
 	private void ventanaJuego() {
 		frame = new JFrame();
 		Imagen iconoVentana = new Imagen("/Images/zeta_logo.png"); 

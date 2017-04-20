@@ -54,21 +54,36 @@ public class Tablero extends JPanel{
 		}
 	}
 	
-	public void moverIzquierda(){
-		tableroNegocio.moverIzquierda();
-		actualizarTablero();
+	public boolean moverIzquierda(){
+		boolean seMovio = false;
+		if(tableroNegocio.moverIzquierda()){
+			actualizarTablero();
+			seMovio = true;
+		}
+		return seMovio;
+		
 	}
-	public void moverDerecha(){
-		tableroNegocio.moverDerecha();
-		actualizarTablero();
+	public boolean moverDerecha(){
+		boolean seMovio = false;
+		if(tableroNegocio.moverDerecha()){
+			actualizarTablero();
+			seMovio = true;
+		}
+		return seMovio;
 	}
-	public void moverArriba(){
-		tableroNegocio.moverArriba();
-		actualizarTablero();
+	public boolean moverArriba(){
+		boolean seMovio = false;
+		if(tableroNegocio.moverArriba()){
+			actualizarTablero();
+		}
+		return seMovio;
 	}
-	public void moverAbajo(){
-		tableroNegocio.moverAbajo();
-		actualizarTablero();
+	public boolean moverAbajo(){
+		boolean seMovio = false;
+		if(tableroNegocio.moverAbajo()){
+			actualizarTablero();
+		}
+		return seMovio;
 	}
 	
 	public JPanel getTablero(){
@@ -76,5 +91,9 @@ public class Tablero extends JPanel{
 	}
 	public boolean seGano(){
 		return tableroNegocio.seGano();
+	}
+	public void reiniciar(){
+		tableroNegocio = new negocio.Tablero();
+		actualizarTablero();
 	}
 }

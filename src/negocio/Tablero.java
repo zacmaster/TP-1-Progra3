@@ -50,44 +50,56 @@ public class Tablero {
 		return posicionDelCero;
 	}
 	
-	public void moverIzquierda(){
+	public boolean moverIzquierda(){
+		boolean seMovio = false;
 		posicionCero = getPosicionCero();
 		if(posicionCero != 3 && posicionCero != 7 && posicionCero != 11 && posicionCero != 15){
+			seMovio = true;
 			int aux = -1;
 			aux = celdas.get(posicionCero+1).getValor();
 			celdas.get(posicionCero).setValor(aux);
 			celdas.get(posicionCero+1).setValor(0);
 		}
+		return seMovio;
 	}
-	public void moverDerecha(){
+	public boolean moverDerecha(){
+		boolean seMovio = false;
 		posicionCero = getPosicionCero();
 		if(posicionCero != 0 && posicionCero != 4 && posicionCero != 8 && posicionCero != 12){
+			seMovio = true;
 			int aux = -1;
 			aux = celdas.get(posicionCero-1).getValor();
 			celdas.get(posicionCero).setValor(aux);
 			celdas.get(posicionCero-1).setValor(0);
 		}
+		return seMovio;
 	}
-	public void moverArriba(){
+	public boolean moverArriba(){
+		boolean seMovio = false;
 		posicionCero = getPosicionCero();
 		if(posicionCero != 12 && posicionCero != 13 && posicionCero != 14 && posicionCero != 15){
+			seMovio = true;
 			int aux = -1;
 			aux = celdas.get(posicionCero+4).getValor();
 			celdas.get(posicionCero).setValor(aux);
 			celdas.get(posicionCero+4).setValor(0);
 			
 		}
+		return seMovio;
 	}
 	
-	public void moverAbajo(){
+	public boolean moverAbajo(){
+		boolean seMovio = false;
 		posicionCero = getPosicionCero();
 		if(posicionCero != 0 && posicionCero != 1 && posicionCero != 2 && posicionCero != 3){
+			seMovio = true;
 			int aux = -1;
 			aux = celdas.get(posicionCero-4).getValor();
 			celdas.get(posicionCero).setValor(aux);
 			celdas.get(posicionCero-4).setValor(0);
 			
 		}
+		return seMovio;
 	}
 	
 	public boolean seGano(){
