@@ -74,7 +74,7 @@ public class Tablero extends JPanel{
 	public JPanel getTablero(){
 		return panel;
 	}
-//	public negocio.Tablero getTableroN() {
-//		return tableroNegocio;
-//	}
+	public boolean seGano(){
+		return tableroNegocio.seGano();
+	}
 }
