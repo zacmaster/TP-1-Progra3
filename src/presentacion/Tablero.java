@@ -4,11 +4,9 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 public class Tablero extends JPanel{
-	/**
-	 * 
-	 */
+
 	private JPanel panel;
-	private ArrayList<Celda> matriz;
+	private ArrayList<Celda> matriz = new ArrayList<Celda>();
 	private final int cantidadDeCeldas = 16;
 	private int posicionXCelda = 2;
 	private int posicionYCelda = 2;
@@ -19,11 +17,9 @@ public class Tablero extends JPanel{
 		tableroNegocio = new negocio.Tablero();
 		
 		panel = new JPanel();
-//		panel.setBackground(Color.black);
 		panel.setBackground(new Color(0,102,204));
 		panel.setBounds(0, 60, 300, 294);
 		panel.setLayout(null);
-		matriz = new ArrayList<Celda>();
 		
 		for (int i = 0; i < cantidadDeCeldas; i++) {
 			
@@ -48,6 +44,7 @@ public class Tablero extends JPanel{
 			}
 		}
 	}
+	
 	public void actualizarTablero(){
 		for(int i = 0; i < matriz.size(); i++){
 			if(matriz.get(i).getNumeroDeCelda() != tableroNegocio.getCeldas().get(i).getValor()){
@@ -55,8 +52,8 @@ public class Tablero extends JPanel{
 				matriz.get(i).setImagen(tableroNegocio.getCeldas().get(i).getValor());
 			}
 		}
-		System.out.println("Se gano:"+ tableroNegocio.seGano());
 	}
+	
 	public void moverIzquierda(){
 		tableroNegocio.moverIzquierda();
 		actualizarTablero();
@@ -77,7 +74,7 @@ public class Tablero extends JPanel{
 	public JPanel getTablero(){
 		return panel;
 	}
-	public negocio.Tablero getTableroN() {
-		return tableroNegocio;
-	}
+//	public negocio.Tablero getTableroN() {
+//		return tableroNegocio;
+//	}
 }

@@ -85,7 +85,8 @@ public class Ventana{
 	
 	private void ventanaJuego() {
 		frame = new JFrame();
-//		frame.setIconImage(new Imagen);
+		Imagen iconoVentana = new Imagen("/Images/zeta_logo.png"); 
+		frame.setIconImage(iconoVentana.getImageIcon().getImage());
 		frame.setTitle("Sliding Puzzle");
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);

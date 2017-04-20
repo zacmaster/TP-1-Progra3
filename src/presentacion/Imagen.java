@@ -27,15 +27,25 @@ public class Imagen {
 		imageIcon = new ImageIcon(dimg);
 		
 	}
+	Imagen(String archivoConExtension){
+		try {
+			img = ImageIO.read(getClass().getResource(archivoConExtension));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Image dimg = img.getScaledInstance(16, 16,
+		        Image.SCALE_SMOOTH);
+		
+		imageIcon = new ImageIcon(dimg);
+	}
 		
 	
 	public ImageIcon getImageIcon(){
 		return this.imageIcon;
 	}
-	
-	public void setImage(String nombreArchivo){
+	public void setImage(int numeroDeImagenDeCelda){
 		try {
-			img = ImageIO.read(getClass().getResource("/Images/"+nombreArchivo+".png"));
+			img = ImageIO.read(getClass().getResource("/Images/"+numeroDeImagenDeCelda+".png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
