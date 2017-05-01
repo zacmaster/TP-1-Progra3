@@ -48,7 +48,7 @@ public class Ventana{
 
 	private void initialize() {
 		ventanaJuego();
-		tablero = new Tablero(ancho);
+		tablero = new Tablero();
 		frame.getContentPane().add(tablero.getTablero());
 		
 		menuBar = new JMenuBar();

@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Tablero {
 	private final int cantidadDeCeldas = 16;
-	private ArrayList<Celda> celdas;
+	private ArrayList<Celda> celdas = null;
 	private ArrayList<Integer> valores = new ArrayList<Integer>();
 	private int posicionCero;
 	

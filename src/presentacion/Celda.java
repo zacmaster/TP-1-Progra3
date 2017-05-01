@@ -36,9 +36,6 @@ public class Celda extends JPanel{
 	public Panel getCeldaPanel(){
 		return panel;
 	}
-//	public int getAncho(){
-//		return ancho;
-//	}
 	
 	public int getNumeroDeCelda() {
 		return numeroDeCelda;

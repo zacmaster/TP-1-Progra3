@@ -6,14 +6,14 @@ import javax.swing.JPanel;
 public class Tablero extends JPanel{
 
 	private JPanel panel;
-	private ArrayList<Celda> matriz = new ArrayList<Celda>();
+	private ArrayList<Celda> celdas = new ArrayList<Celda>();
 	private final int cantidadDeCeldas = 16;
 	private int posicionXCelda = 2;
 	private int posicionYCelda = 2;
 	private int distanciaCelda = 71;
 	private negocio.Tablero tableroNegocio = null;
 	
-	public Tablero(int anchoVentana){
+	public Tablero(){
 		tableroNegocio = new negocio.Tablero();
 //		tableroNegocio.ganar();
 		panel = new JPanel();
@@ -23,10 +23,10 @@ public class Tablero extends JPanel{
 		
 		for (int i = 0; i < cantidadDeCeldas; i++) {
 			
-			matriz.add(new Celda(posicionXCelda,posicionYCelda,
+			celdas.add(new Celda(posicionXCelda,posicionYCelda,
 			tableroNegocio.getCeldas().get(i).getValor()));
 			
-			panel.add(matriz.get(i).getCeldaPanel());
+			panel.add(celdas.get(i).getCeldaPanel());
 			posicionXCelda+=distanciaCelda;
 			
 			if(i == 3){
@@ -46,10 +46,10 @@ public class Tablero extends JPanel{
 	}
 	
 	public void actualizarTablero(){
-		for(int i = 0; i < matriz.size(); i++){
-			if(matriz.get(i).getNumeroDeCelda() != tableroNegocio.getCeldas().get(i).getValor()){
-				matriz.get(i).setNumeroDeCelda(tableroNegocio.getCeldas().get(i).getValor());
-				matriz.get(i).setImagen(tableroNegocio.getCeldas().get(i).getValor());
+		for(int i = 0; i < celdas.size(); i++){
+			if(celdas.get(i).getNumeroDeCelda() != tableroNegocio.getCeldas().get(i).getValor()){
+				celdas.get(i).setNumeroDeCelda(tableroNegocio.getCeldas().get(i).getValor());
+				celdas.get(i).setImagen(tableroNegocio.getCeldas().get(i).getValor());
 			}
 		}
 	}
