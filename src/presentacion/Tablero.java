@@ -13,6 +13,7 @@ public class Tablero extends JPanel{
 	private int distanciaCelda = 71;
 	private negocio.Tablero tableroNegocio = null;
 	
+	
 	public Tablero(){
 		tableroNegocio = new negocio.Tablero();
 //		tableroNegocio.ganar();
@@ -20,7 +21,7 @@ public class Tablero extends JPanel{
 		panel.setBackground(new Color(0,102,204));
 		panel.setBounds(0, 0, 300, 294);
 		panel.setLayout(null);
-		
+//		Se asignan las distintas posiciones del tablero a cada celda
 		for (int i = 0; i < cantidadDeCeldas; i++) {
 			
 			celdas.add(new Celda(posicionXCelda,posicionYCelda,
@@ -44,7 +45,7 @@ public class Tablero extends JPanel{
 			}
 		}
 	}
-	
+//	Actualiza el estado del tablero cambiando la imagen de la celda que se movió
 	public void actualizarTablero(){
 		for(int i = 0; i < celdas.size(); i++){
 			if(celdas.get(i).getNumeroDeCelda() != tableroNegocio.getCeldas().get(i).getValor()){

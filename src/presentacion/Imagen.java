@@ -14,6 +14,7 @@ public class Imagen {
 	private int alto;
 	
 	Imagen(String nombreArchivo, int ancho, int alto){
+//		Se lee las imagenes desde la carpeta fuente
 		try {
 			img = ImageIO.read(getClass().getResource("/Images/"+nombreArchivo+".png"));
 		} catch (IOException e) {
@@ -21,12 +22,14 @@ public class Imagen {
 		}
 		this.alto = alto;
 		this.ancho = ancho;
+//		Se escala la imagen
 		Image dimg = img.getScaledInstance(ancho, alto,
 		        Image.SCALE_SMOOTH);
 		
 		imageIcon = new ImageIcon(dimg);
 		
 	}
+//	Este constructor se hizo para ponerle un logo a la ventana:
 	Imagen(String archivoConExtension){
 		try {
 			img = ImageIO.read(getClass().getResource(archivoConExtension));
@@ -43,6 +46,7 @@ public class Imagen {
 	public ImageIcon getImageIcon(){
 		return this.imageIcon;
 	}
+//	Con este método se cambia la imagen
 	public void setImage(int numeroDeImagenDeCelda){
 		try {
 			img = ImageIO.read(getClass().getResource("/Images/"+numeroDeImagenDeCelda+".png"));

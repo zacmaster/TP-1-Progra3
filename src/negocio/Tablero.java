@@ -13,15 +13,17 @@ public class Tablero {
 		for (int i = 0; i < 16; i++) {
 			valores.add(i);
 		}
+//		Acá se mezclan los valores del tablero
 		Collections.shuffle(valores);
 		celdas = new ArrayList<Celda>();
+//		Se van asignando los valores a cada celda
 		for (int i = 0; i < cantidadDeCeldas; i++) {
 			celdas.add(new Celda(valores.get(i)));
 		}
 		posicionCero = getPosicionCero();
 	}
 	
-	
+//	Método creado para ver los valores por consola
 	public String mostrarValores(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("Valores: \n");
@@ -36,7 +38,7 @@ public class Tablero {
 		return sb.toString();
 	}
 	
-	
+//	Saber la posicion de la celda 'vacia'
 	public int getPosicionCero(){
 		int posicionDelCero = -1;
 		int i = 0;
@@ -50,6 +52,7 @@ public class Tablero {
 		return posicionDelCero;
 	}
 	
+//	Métodos de mover en distintas direcciones:
 	public boolean moverIzquierda(){
 		boolean seMovio = false;
 		posicionCero = getPosicionCero();
@@ -101,7 +104,7 @@ public class Tablero {
 		}
 		return seMovio;
 	}
-	
+//	Método para saber si se ganó el juego
 	public boolean seGano(){
 		boolean gano = true;
 		for (int i = 0; i < cantidadDeCeldas; i++) {
@@ -116,6 +119,8 @@ public class Tablero {
 	public ArrayList<Celda> getCeldas() {
 		return celdas;
 	}
+	
+//	Método para ganar, para probar el juego
 	public void ganar(){
 		for (int i = 0; i < cantidadDeCeldas; i++) {
 			if(i == 15){

@@ -15,6 +15,7 @@ public class Celda extends JPanel{
 	private Imagen imagen = null;
 	private Integer numeroDeCelda;
 	
+//	Se construye la celda con sus respectivas medidas y posiciones
 	public Celda(int x, int y, Integer numeroDeCelda){
 		
 		alto = 71;
@@ -27,6 +28,7 @@ public class Celda extends JPanel{
 		panel.setBackground(new Color(0,102,204));
 		
 		label = new JLabel();
+//		La imagen de la celda se corresponde con su número de celda
 		label.setBounds(0, 0, 71, 71); imagen = new Imagen(this.numeroDeCelda.toString(),ancho, alto);
 		label.setIcon(imagen.getImageIcon());
 		
@@ -43,6 +45,7 @@ public class Celda extends JPanel{
 	public void setNumeroDeCelda(int numeroDeCelda) {
 		this.numeroDeCelda = numeroDeCelda;
 	}
+	
 	public void setImagen(Integer numeroDeImagen){
 			imagen.setImage(numeroDeImagen);
 			label.setIcon(imagen.getImageIcon());

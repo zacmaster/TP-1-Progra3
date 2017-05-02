@@ -51,6 +51,7 @@ public class Ventana{
 		tablero = new Tablero();
 		frame.getContentPane().add(tablero.getTablero());
 		
+		//Se agregan barras y menús  a la ventana
 		menuBar = new JMenuBar();
 		
 		menu = new JMenu("Juego");
@@ -85,14 +86,7 @@ public class Ventana{
 		});
 		menuAyuda.add(menuComoJugar);
 		
-		
-		
-		
-		
-		
-		
-		
-		
+//		Se agrega el contador de movimientos a la ventana
 		
 		JLabel textoMovimientos = new JLabel();
 		textoMovimientos.setText("Cantidad de movimientos: ");
@@ -110,7 +104,7 @@ public class Ventana{
 		
 		
 		
-		
+//		Se pueden mover las piezas hasta que el juego esté terminado
 		
 		frame.addKeyListener(new KeyAdapter(){
 			@Override
