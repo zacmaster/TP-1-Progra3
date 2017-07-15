@@ -1,14 +1,15 @@
 package presentacion;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import java.awt.Panel;
-import javax.swing.JPanel;
 
 import java.awt.Color;
+import java.awt.Insets;
 
-public class Celda extends JPanel{
+public class Celda extends JButton{
+	private static final long serialVersionUID = 1L;
 	
-	private Panel panel;
 	private JLabel label;
 	private int ancho;
 	private int alto;
@@ -21,20 +22,30 @@ public class Celda extends JPanel{
 		ancho = 71;
 		this.numeroDeCelda = numeroDeCelda;
 		
-		panel = new Panel();
-		panel.setBounds(x, y, ancho, alto);
-		panel.setLayout(null);
-		panel.setBackground(new Color(0,102,204));
+		setBounds(x, y, ancho, alto);
+		
+		configuracion();
+		
+		
+		
+		setEnabled(false);
+		setBackground(new Color(0,102,204));
 		
 		label = new JLabel();
 		label.setBounds(0, 0, 71, 71); imagen = new Imagen(this.numeroDeCelda.toString(),ancho, alto);
 		label.setIcon(imagen.getImageIcon());
 		
-		panel.add(label);
+		add(label);
 		
 	}
-	public Panel getCeldaPanel(){
-		return panel;
+
+	private void configuracion() {
+		setBorder(null);
+		setBorderPainted(false);
+		setMargin(new Insets(0,0,0,0));
+		
+		setFocusPainted(false);
+		setContentAreaFilled(false);
 	}
 	
 	public int getNumeroDeCelda() {

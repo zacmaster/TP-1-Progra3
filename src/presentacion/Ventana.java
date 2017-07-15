@@ -1,8 +1,6 @@
 package presentacion;
 
 //import java.awt.EventQueue;
-import java.awt.Label;
-import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,36 +8,29 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
-import javax.swing.SwingConstants;
 
 //import InterfazGrafica.JuegoGrafica;
 
-import javax.swing.JComboBox;
-import javax.swing.JButton;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.CardLayout;
 
-public class Ventana{
-
-	JFrame frame;
-	private Tablero tablero;
-	private int ancho = 295;
-	private int alto = 370;
-	private int cantidadDeMovimientos = 0;
-	JLabel contadorMovimientosEtiqueta;
-	private JMenuBar menuBar;
-	private JMenu menu;
-	private JMenuItem menuReiniciar,menuSalir, menuComoJugar;
+public class Ventana extends JFrame{
+	
+	private static final long serialVersionUID = 1L;
+	
+	private Tablero _tablero;
+	private final int _ANCHO = 295;
+	private final int _ALTO = 370;
+	private int _cantidadMovimientos = 0;
+	JLabel _etiquetaCantMov;
+	private JMenuBar _barraMenu;
+	private JMenu _menu, _menuAyuda;
+	private JMenuItem _mReiniciar,_mSalir, _mComoJugar;
 	
 
 	public Ventana() {
@@ -48,46 +39,9 @@ public class Ventana{
 
 	private void initialize() {
 		ventanaJuego();
-		tablero = new Tablero();
-		frame.getContentPane().add(tablero.getTablero());
-		
-		menuBar = new JMenuBar();
-		
-		menu = new JMenu("Juego");
-		menuBar.add(menu);
-		
-		menuReiniciar = new JMenuItem("Reiniciar");
-		menuReiniciar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				reiniciar();
-			}
-		});
-		menu.add(menuReiniciar);
-		
-		menuSalir = new JMenuItem("Salir");
-		menuSalir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		menu.add(menuSalir);
-		frame.setJMenuBar(menuBar);
-		
-		JMenu menuAyuda = new JMenu("Ayuda");
-		menuBar.add(menuAyuda);
-		
-		menuComoJugar = new JMenuItem("Como Jugar");
-		menuComoJugar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JOptionPane.showMessageDialog(frame, "Deslize las piezas usando las flechas del teclado"
-				+ " \npara que queden ordenadas del 1 al 15.");
-			}
-		});
-		menuAyuda.add(menuComoJugar);
-		
-		
-		
-		
+		_tablero = new Tablero();
+		getContentPane().add(_tablero);
+		cargarBarraMenu();
 		
 		
 		
@@ -99,28 +53,28 @@ public class Ventana{
 		textoMovimientos.setFont(new Font("Arial",Font.PLAIN, 18));
 		textoMovimientos.setForeground(Color.white);
 		textoMovimientos.setBounds(2,283,240,40);
-		frame.getContentPane().add(textoMovimientos);
+		getContentPane().add(textoMovimientos);
 		
-		contadorMovimientosEtiqueta = new JLabel();
-		contadorMovimientosEtiqueta.setText(this.cantidadDeMovimientos+"");
-		contadorMovimientosEtiqueta.setFont(new Font("Arial",Font.PLAIN, 18));
-		contadorMovimientosEtiqueta.setForeground(Color.white);
-		contadorMovimientosEtiqueta.setBounds(250,283,240,40);
-		frame.getContentPane().add(contadorMovimientosEtiqueta);
-		
-		
+		_etiquetaCantMov = new JLabel();
+		_etiquetaCantMov.setText(this._cantidadMovimientos+"");
+		_etiquetaCantMov.setFont(new Font("Arial",Font.PLAIN, 18));
+		_etiquetaCantMov.setForeground(Color.white);
+		_etiquetaCantMov.setBounds(250,283,240,40);
+		getContentPane().add(_etiquetaCantMov);
 		
 		
 		
-		frame.addKeyListener(new KeyAdapter(){
+		
+		
+		addKeyListener(new KeyAdapter(){
 			@Override
 			public void keyPressed(KeyEvent e) {
-				if(!tablero.seGano()){
+				if(!_tablero.seGano()){
 					mover(e);
-					contadorMovimientosEtiqueta.setText(cantidadDeMovimientos+"");
+					_etiquetaCantMov.setText(_cantidadMovimientos+"");
 				}
 				else{
-					JOptionPane.showMessageDialog(frame, "Has ganado!!");
+					JOptionPane.showMessageDialog(new JFrame(), "Has ganado!!");
 				}
 				if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
 					System.exit(0);
@@ -134,44 +88,92 @@ public class Ventana{
 	private void mover(KeyEvent e){
 		switch(e.getKeyCode()){
 		case KeyEvent.VK_LEFT:
-			if(tablero.moverIzquierda()){
-				cantidadDeMovimientos++;
+			if(_tablero.moverIzquierda()){
+				_cantidadMovimientos++;
 			}
 			break;
 		case KeyEvent.VK_RIGHT:
-			if(tablero.moverDerecha()){
-				cantidadDeMovimientos++;
+			if(_tablero.moverDerecha()){
+				_cantidadMovimientos++;
 			}
 			break;
 		case KeyEvent.VK_UP:
-			if(tablero.moverArriba()){
-				cantidadDeMovimientos++;
+			if(_tablero.moverArriba()){
+				_cantidadMovimientos++;
 			}
 			break;
 		case KeyEvent.VK_DOWN:
-			if(tablero.moverAbajo()){
-				cantidadDeMovimientos++;
+			if(_tablero.moverAbajo()){
+				_cantidadMovimientos++;
 			}
 			break;
 		}
 	}
+	
+	
+	
+	
+	private void cargarBarraMenu(){
+		inicializarElementosMenu();
+		
+		
+		
+		_mComoJugar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JOptionPane.showMessageDialog(new JFrame(), "Deslize las piezas usando las flechas del teclado"
+				+ " \npara que queden ordenadas del 1 al 15.");
+			}
+		});
+		_menuAyuda.add(_mComoJugar);
+		
+		_barraMenu.add(_menu);
+		
+		_mReiniciar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				reiniciar();
+			}
+		});
+		_menu.add(_mReiniciar);
+		
+		_mSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		_menu.add(_mSalir);
+		setJMenuBar(_barraMenu);
+		
+		_barraMenu.add(_menuAyuda);
+	}
+
+	private void inicializarElementosMenu() {
+		_barraMenu = new JMenuBar();
+		
+		_menu = new JMenu("Juego");
+		_mReiniciar = new JMenuItem("Reiniciar");
+		_mSalir = new JMenuItem("Salir");
+		_menuAyuda= new JMenu("Ayuda");
+		
+		_mComoJugar = new JMenuItem("Como Jugar");
+	}
+
+	
 	private void reiniciar(){
-		tablero.reiniciar();
-		cantidadDeMovimientos = 0;
-		contadorMovimientosEtiqueta.setText(this.cantidadDeMovimientos+"");
+		_tablero.reiniciar();
+		_cantidadMovimientos = 0;
+		_etiquetaCantMov.setText(this._cantidadMovimientos+"");
 		
 	}
 			
 	private void ventanaJuego() {
-		frame = new JFrame();
 		Imagen iconoVentana = new Imagen("/Images/zeta_logo.png"); 
-		frame.setIconImage(iconoVentana.getImageIcon().getImage());
-		frame.setTitle("Sliding Puzzle");
-		frame.getContentPane().setLayout(null);
-		frame.setResizable(false);
-		frame.getContentPane().setBackground(new Color(0,102,204));
-		frame.setBounds(400, 100, ancho, alto);
-		frame.getContentPane().setForeground(Color.RED);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(iconoVentana.getImageIcon().getImage());
+		setTitle("Sliding Puzzle");
+		getContentPane().setLayout(null);
+		setResizable(false);
+		getContentPane().setBackground(new Color(0,102,204));
+		setBounds(400, 100, _ANCHO, _ALTO);
+		getContentPane().setForeground(Color.RED);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

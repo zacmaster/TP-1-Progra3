@@ -8,7 +8,7 @@ public class Aplicacion {
 			public void run() {
 				try {
 					Ventana window = new Ventana();
-					window.frame.setVisible(true);
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

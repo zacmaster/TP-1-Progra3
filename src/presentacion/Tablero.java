@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 public class Tablero extends JPanel{
-
-	private JPanel panel;
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Celda> celdas = new ArrayList<Celda>();
 	private final int cantidadDeCeldas = 16;
 	private int posicionXCelda = 2;
@@ -16,17 +15,16 @@ public class Tablero extends JPanel{
 	public Tablero(){
 		tableroNegocio = new negocio.Tablero();
 //		tableroNegocio.ganar();
-		panel = new JPanel();
-		panel.setBackground(new Color(0,102,204));
-		panel.setBounds(0, 0, 300, 294);
-		panel.setLayout(null);
+		setBackground(new Color(0,102,204));
+		setBounds(0, 0, 300, 294);
+		setLayout(null);
 		
 		for (int i = 0; i < cantidadDeCeldas; i++) {
 			
 			celdas.add(new Celda(posicionXCelda,posicionYCelda,
 			tableroNegocio.getCeldas().get(i).getValor()));
 			
-			panel.add(celdas.get(i).getCeldaPanel());
+			add(celdas.get(i));
 			posicionXCelda+=distanciaCelda;
 			
 			if(i == 3){
@@ -88,9 +86,7 @@ public class Tablero extends JPanel{
 		return seMovio;
 	}
 	
-	public JPanel getTablero(){
-		return panel;
-	}
+	
 	public boolean seGano(){
 		return tableroNegocio.seGano();
 	}
